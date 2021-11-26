@@ -15,7 +15,8 @@ class Crypto:
         }
         headers = {
           'Accepts': 'application/json',
-          'X-CMC_PRO_API_KEY': 'enter-your-api-key-here',
+          #'X-CMC_PRO_API_KEY': 'enter-your-api-key-here',
+          'X-CMC_PRO_API_KEY': coinmarketcap_api,
         }
 
         session = Session()
@@ -35,7 +36,8 @@ class Crypto:
         }
         headers = {
           'Accepts': 'application/json',
-          'X-CMC_PRO_API_KEY': 'enter-your-api-key-here',
+          #'X-CMC_PRO_API_KEY': 'enter-your-api-key-here',
+          'X-CMC_PRO_API_KEY': coinmarketcap_api,
         }
 
         session = Session()
