@@ -1,8 +1,10 @@
 from api import Crypto
 from flask import Flask, render_template, request
 from flask_mail import Mail, Message
+import os
 
-
+coinmarketcap_api = os.getenv('COINMARKETCAP_API')
+flask_port = os.getenv('FLASK_PORT',80)
 
 app = Flask(__name__)
 
@@ -19,6 +21,7 @@ crypto  = Crypto()
 
 
 def sendTestEmail():
+    return
     msg = Message("Our first Python Email",
                   sender="testing@web-design-johannesburg.com",
                   recipients=["matshidis@gmail.com", "bertha.kgokong@tatisoftware.com"])
@@ -84,7 +87,7 @@ def hello():
 
     results = crypto.get_top_10()
 
-    sendTestEmail()
+    #sendTestEmail()
 
     for result in results:
         result['quote']['USD']['price'] = '$ ' + "{:.2f}".format(result['quote']['USD']['price'])
@@ -104,7 +107,7 @@ def contact():
         result['email'] = request.form['email'].replace(' ', '').lower()
         result['message'] = request.form['message']
 
-        sendContactForm(result)
+        #sendContactForm(result)
 
         return render_template('contact.html', **locals())
 

@@ -1,8 +1,9 @@
 from requests import Request, Session
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import json
+import os
 
-
+coinmarketcap_api = os.getenv('COINMARKETCAP_API')
 class Crypto:
 
     def get_top_5(self):
